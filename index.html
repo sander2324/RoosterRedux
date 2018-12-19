@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Sander de Groot">
+    <meta name="description" content="Roosters voor het Deltion College">
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+    <script src="./js/vue.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Deltion Roosters</title>
+</head>
+<body>
+    <div class="scheduleArea">
+        <div v-for="days in week" class="dayBox">
+            <div class="dayTitle">{{ days.date_f }}</div>
+            <div class="courseBox" v-for="course in days.items">
+                <div id="courseTimespan">{{ course.t }}</div>
+                <div id="courseName">{{ course.v }}</div>
+                <div id="courseLecturer">{{ course.l }}</div>
+                <div id="courseRoom">{{ course.r }}</div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+</html>
