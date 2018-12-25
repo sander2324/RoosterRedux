@@ -1,3 +1,11 @@
+import "@babel/polyfill"; // More about polyfills: https://developer.mozilla.org/en-US/docs/Glossary/Polyfill
+// We can import libraries we use here. These will be bundled into a seperate js file by Webpack. Cool huh?
+import axios from 'axios';
+import Vue from 'vue';
+
+// Make sure webpack knows that it also needs to bundle our stylesheets!
+import '../scss/style.scss'
+
 //#region base functions
 
 // Get the current week number (thanks StackOverflow)

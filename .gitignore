@@ -1,0 +1,11 @@
+# Node dependencies
+node_modules/
+# Builds
+/dist/
+# Editors
+.vscode/
+.idea/
+# Mac users
+.DS_STORE
+# We will get to this soon
+.stylelintcache
