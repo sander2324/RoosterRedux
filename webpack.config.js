@@ -6,12 +6,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); // Used to inject the 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');  // Used to bundle styles together.
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin'); // Can't beat that name! Used to optimize generated css for size.
 const TerserPlugin = require('terser-webpack-plugin'); // Used to optimize bundled javascript for size.
+const VueLoaderPlugin = require('vue-loader/lib/plugin') // This adds support for .vue files
 
 // Behold! The mighty Webpack config!
 module.exports = {
   entry: {
     // Start looking for things to bundle/optimize from here. Webpack will look for require/import calls.
-    app: './src/js/script.js',
+    app: './src/app/index.js',
   },
   output: {
     // Put bundled javascript inside the dist folder
@@ -20,7 +21,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      vue: 'vue/dist/vue.js' // We need this for now to support Vue syntax (like v-for) in html files. Migrating to .vue files is highly recommended.
+      'vue$': 'vue/dist/vue.runtime.common.js' // This will force a more lightweight version of Vue. Saving 20% on bundle size!
     }
   },
   module: {
@@ -31,6 +32,9 @@ module.exports = {
       use: [
         'babel-loader', // Babel is a compiler that let us write modern javascript (ES6). It will transpile modern javascript to a more compatible variant called ES5.
       ],
+    }, {
+      test: /\.vue$/,
+      loader: 'vue-loader'
     }, {
       test: /\.scss$/,
       use: [
@@ -83,6 +87,7 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
+    new VueLoaderPlugin(),
   ],
   // Dev server configuration.
   devServer: {

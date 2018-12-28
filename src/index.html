@@ -10,17 +10,7 @@
     <!-- CSS will be injected here. -->
 </head>
 <body>
-    <div class="scheduleArea">
-        <div v-for="days in week" class="dayBox">
-            <div class="dayTitle">{{ days.date_f }}</div>
-            <div class="courseBox" v-for="course in days.items">
-                <div id="courseTimespan">{{ course.t }}</div>
-                <div id="courseName">{{ course.v }}</div>
-                <div id="courseLecturer">{{ course.l }}</div>
-                <div id="courseRoom">{{ course.r }}</div>
-            </div>
-        </div>
-    </div>
+    <div id="root"></div>
     <!-- javascript files will be injected here. -->
 </body>
 </html>
