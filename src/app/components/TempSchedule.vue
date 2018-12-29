@@ -41,7 +41,7 @@ export default {
   // This data only exists within this component.
   data() {
     return {
-      group: "IC1E",
+      group: 'IC1E',
       week: [],
     };
   },
