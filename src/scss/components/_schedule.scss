@@ -37,7 +37,7 @@
   text-align: center;
   display: grid;
   grid-template-columns: 1.2fr 1fr 1fr;
-  grid-template-areas: 'timeframe course lecturer' 'timeframe course room';
+  grid-template-areas: "timeframe course lecturer" "timeframe course room";
 }
 
 .courseBox > div:nth-child(even) {
