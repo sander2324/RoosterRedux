@@ -4,7 +4,11 @@
   "description": "A cleaner redesign of the Deltion roster site",
   "scripts": {
     "build": "webpack --mode=production",
-    "start": "webpack-dev-server --open --mode=development"
+    "start": "webpack-dev-server --open --mode=development",
+    "lint-js": "eslint \"src/app/**\"",
+    "fix-js": "eslint \"src/app/**\" --fix",
+    "lint-styles": "stylelint 'src/**/*.scss' --color --cache",
+    "fix-styles": "stylelint 'src/**/*.scss' --color --cache --fix"
   },
   "engines": {
     "node": ">=10.14"
@@ -12,6 +16,14 @@
   "author": "sander2324",
   "license": "MIT",
   "private": true,
+  "devDependencies": {
+    "babel-eslint": "10.0.1",
+    "eslint": "5.11.0",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-vue": "5.0.0",
+    "stylelint": "9.9.0"
+  },
   "dependencies": {
     "@babel/core": "7.2.2",
     "@babel/polyfill": "7.2.5",

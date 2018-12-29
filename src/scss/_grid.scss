@@ -33,19 +33,24 @@ $breakpoints: (
 }
 
 // media queries
+
 @mixin break($size) {
+
   @media (min-width: map-get($breakpoints, $size)) {
     @content;
   }
 }
 
 // Perform class generation magic
+
 @each $key, $value in $breakpoints {
+
   @for $i from 1 through $grid-columns {
     // Output format: col--[breakpoint name]-[number from 1 to $grid-columns]
     // Example: col--lg-4
     .col--#{$key}-#{$i} {
       flex: 0 0 100%;
+
       @include break($key) {
         flex: 0 0 #{$i / $grid-columns * 100%};
       }

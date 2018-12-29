@@ -1,4 +1,4 @@
-
+/* stylelint-disable */
 .dayItem {
   margin: auto;
   width: 400px;
@@ -14,7 +14,7 @@
 .scheduleArea {
   display: flex;
   flex-wrap: wrap;
-  margin: auto
+  margin: auto;
 }
 
 .dayBox {
@@ -37,7 +37,7 @@
   text-align: center;
   display: grid;
   grid-template-columns: 1.2fr 1fr 1fr;
-  grid-template-areas: "timeframe course lecturer" "timeframe course room"
+  grid-template-areas: 'timeframe course lecturer' 'timeframe course room';
 }
 
 .courseBox > div:nth-child(even) {
@@ -54,7 +54,8 @@
   grid-area: course;
 }
 
-#courseTimespan, #courseName {
+#courseTimespan,
+ #courseName {
   padding-top: 14px;
 }
 
@@ -70,7 +71,8 @@
 }
 
 @media(max-width: 300px) {
+
   .dayBox {
-      margin-left: 0;
+    margin-left: 0;
   }
 }
