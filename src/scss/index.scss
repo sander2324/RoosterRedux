@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+// Variables
+@import 'variables';
+
+// // Get a head start
+@import 'reset'; // Reset the user's browser default styles
+@import 'reboot'; // Makeover time!
+@import 'grid'; // This will generate responsive grid classes for us.
+
+// Components
+@import './components/schedule';

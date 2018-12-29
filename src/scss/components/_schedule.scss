@@ -1,0 +1,76 @@
+
+.dayItem {
+  margin: auto;
+  width: 400px;
+  min-height: 200px;
+  background-color: red;
+  border-radius: 5px;
+}
+
+.dayTitle {
+  text-align: center;
+}
+
+.scheduleArea {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto
+}
+
+.dayBox {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  background-color: #e1e1e1;
+  width: 290px;
+  min-height: 250px;
+  border-radius: 5px;
+}
+
+/* width would normally be 360px */
+.courseBox {
+  margin-left: 5%;
+  width: 90%;
+  height: 45px;
+  background-color: #f4f4f4;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  grid-template-areas: "timeframe course lecturer" "timeframe course room"
+}
+
+.courseBox > div:nth-child(even) {
+  background-color: rgb(209, 209, 209);
+}
+
+#courseTimespan {
+  grid-area: timeframe;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+#courseName {
+  grid-area: course;
+}
+
+#courseTimespan, #courseName {
+  padding-top: 14px;
+}
+
+#courseLecturer {
+  border-top-right-radius: 5px;
+  grid-area: lecturer;
+}
+
+#courseRoom {
+  grid-area: room;
+  border-bottom-right-radius: 5px;
+  background-color: #f4f4f4;
+}
+
+@media(max-width: 300px) {
+  .dayBox {
+      margin-left: 0;
+  }
+}
