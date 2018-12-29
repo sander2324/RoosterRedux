@@ -2,6 +2,8 @@ import '@babel/polyfill';
 import Vue from 'vue';
 import '../scss/index.scss';
 
+import store from './store';
+
 import App from './components/App.vue';
 
 Vue.config.productionTip = false;
@@ -12,6 +14,7 @@ window.app = new Vue({
   el: '#root',
   components: { App },
   template: '<App/>',
+  store,
 
   // This will have the webpack vue-loader plugin do some optimization
   // in advance that makes it possible to include a more lightweight version of Vue.
