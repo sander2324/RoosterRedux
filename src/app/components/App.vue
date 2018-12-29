@@ -1,13 +1,15 @@
 <template>
   <div id="App">
-    <TempSchedule />
+    <site-header></site-header>
+    <temp-schedule></temp-schedule>
   </div>
 </template>
 
 <script>
-import TempSchedule from './TempSchedule.vue';
+import SiteHeader from "./SiteHeader.vue";
+import TempSchedule from "./TempSchedule.vue";
 
 export default {
-  components: { TempSchedule },
+  components: { SiteHeader, TempSchedule }
 };
 </script>

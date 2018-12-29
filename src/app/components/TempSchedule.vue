@@ -40,10 +40,9 @@ import getCurrentWeek from '../helpers/getCurrentWeek';
 export default {
   // This data only exists within this component.
   data() {
-    return { // Don't forget the return keyword!
-      group: 'IC1E',
+    return {
+      group: "IC1E",
       week: [],
-      today: new Date().toLocaleDateString(),
     };
   },
   mounted() {
@@ -57,6 +56,4 @@ export default {
       });
   },
 };
-// Normally there would be a style tag at the end of this file.
-// I prefer for now to handle this separately
 </script>
