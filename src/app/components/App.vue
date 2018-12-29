@@ -1,13 +1,13 @@
 <template>
   <div id="App">
-    <temp-schedule></temp-schedule>
+    <TempSchedule />
   </div>
 </template>
 
 <script>
-import TempSchedule from "./TempSchedule.vue";
+import TempSchedule from './TempSchedule.vue';
 
 export default {
-  components: { TempSchedule }
+  components: { TempSchedule },
 };
 </script>

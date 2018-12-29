@@ -123,18 +123,18 @@ q {
 }
 
 blockquote {
+
   &:before,
   &:after {
-    content: "";
-    content: none;
+    content: '';
   }
 }
 
 q {
+
   &:before,
   &:after {
-    content: "";
-    content: none;
+    content: '';
   }
 }
 
