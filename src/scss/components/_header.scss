@@ -9,45 +9,42 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-#headerTitle {
+.header__title {
   text-align: left;
 }
 
-#headerTitle > h2 {
+.header__title > h2 {
   margin: 0;
   padding: 0;
   margin-top: 13px;
   margin-left: 13px;
 }
 
-#headerSearchBox {
+.header__SearchBox {
   display: grid;
   justify-content: center;
 }
 
-#classInput {
+.header__SearchBox__input {
   height: 3em;
   margin-top: 18px;
-}
-
-#headerGroupDisplay {
-  text-align: right;
-}
-
-#classInput {
   text-align: center;
   border: none;
   border-radius: 5px;
 }
 
-#headerGroupDisplay > h3 {
+.header__GroupDisplay {
+  text-align: right;
+}
+
+.header__GroupDisplay > h3 {
   margin: 0;
   margin-right: 13px;
   margin-top: 24px;
 }
 
 @media(max-width: 700px) {
-  #headerTitle > h2, #headerGroupDisplay > h3 {
+  .header__title > h2, .header__GroupDisplay > h3 {
     display: none !important;
   }
 }

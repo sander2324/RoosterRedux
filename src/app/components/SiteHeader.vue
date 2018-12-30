@@ -1,16 +1,16 @@
 <template>
   <div class="header">
-    <div id="headerTitle">
+    <div class="header__title">
       <h2>Deltion Roosters Redux</h2>
     </div>
-    <div id="headerSearchBox">
+    <div class="header__SearchBox">
       <input
-        id="classInput"
+        class="header__SearchBox__input"
         type="text"
         placeholder="Vul hier je klas in"
       >
     </div>
-    <div id="headerGroupDisplay">
+    <div class="header__GroupDisplay">
       <h3>Rooster voor groep: (groepnaam)</h3>
     </div>
   </div>
