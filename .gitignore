@@ -9,3 +9,6 @@ node_modules/
 .DS_STORE
 # We will get to this soon
 .stylelintcache
+
+# Ignore the package lock because it differs between platforms and thus gets update all the time.
+package-lock.json
