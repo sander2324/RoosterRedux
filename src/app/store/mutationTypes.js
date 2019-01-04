@@ -1,2 +1,2 @@
-export const SET_COUNTER = 'SET_COUNTER';
-export const SET_SOMETHING_ELSE = 'SET_SOMETHING_ELSE';
+export const updateGroup = 'updateGroup';
+export const updateWeek = 'updateWeek';

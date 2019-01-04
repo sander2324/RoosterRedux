@@ -1,10 +1,12 @@
+import axios from 'axios';
+import getCurrentWeek from '../helpers/getCurrentWeek';
 import * as actions from './actionTypes';
-import * as mutations from './mutationTypes';
 
 export default {
-  [actions.SET_COUNTER]: async (context, payload) => {
-    // Do async stuff like api calls here.
-
-    context.commit(mutations.SET_COUNTER, payload);
+  [actions.getWeek]: async (context) => {
+    const weekData = await axios.get(`https://roosters-api.stormheg.co/api/v1/roster?group=${context.state.group}`).catch((err) => {
+      console.log(err);
+    });
+    context.commit('updateWeek', getCurrentWeek(weekData.data.data));
   },
 };

@@ -5,6 +5,7 @@
   "scripts": {
     "build": "webpack --mode=production",
     "start": "webpack-dev-server --open --mode=development",
+    "dev": "webpack-dev-server --open --mode=development",
     "lint-js": "eslint \"src/app/**\"",
     "fix-js": "eslint \"src/app/**\" --fix",
     "lint-styles": "stylelint 'src/**/*.scss' --color --cache",

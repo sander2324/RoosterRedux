@@ -8,8 +8,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    // Initial example value
-    counter: 0,
+    group: '',
+    week: [],
   },
   mutations,
   actions,

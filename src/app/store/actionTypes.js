@@ -1,2 +1,2 @@
 export const SET_COUNTER = 'SET_COUNTER';
-export const DO_SOMETHING_ELSE = 'DO_SOMETHING_ELSE';
+export const getWeek = 'getWeek';
