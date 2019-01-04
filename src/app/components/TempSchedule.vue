@@ -31,16 +31,11 @@
 </template>
 
 <script>
-import axios from 'axios';
-import getCurrentWeek from '../helpers/getCurrentWeek';
 
 export default {
-  // This data only exists within this component.
-  data() {
-    return {
-      group: this.$store.state.group,
-      week: this.$store.state.week,
-    };
+  computed: {
+    group() { return this.$store.state.group; },
+    week() { return this.$store.state.week; },
   },
 };
 </script>
