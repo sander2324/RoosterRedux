@@ -31,26 +31,11 @@
 </template>
 
 <script>
-import axios from 'axios';
-import getCurrentWeek from '../helpers/getCurrentWeek';
 
 export default {
-  // This data only exists within this component.
-  data() {
-    return {
-      group: 'IC1E',
-      week: [],
-    };
-  },
-  mounted() {
-    axios
-      .get(`https://roosters-api.stormheg.co/api/v1/roster?group=${this.group}`)
-      .then((response) => {
-        this.week = getCurrentWeek(response.data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  computed: {
+    group() { return this.$store.state.group; },
+    week() { return this.$store.state.week; },
   },
 };
 </script>

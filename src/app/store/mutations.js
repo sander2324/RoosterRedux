@@ -1,4 +1,6 @@
+import * as mutations from './mutationTypes';
+
 export default {
-  SET_COUNTER: (state, payload) => { state.counter = payload; },
-  DO_SOMETHING_ELSE: (state, payload) => { state.something = payload; },
+  [mutations.UPDATE_GROUP]: (state, payload) => { state.group = payload; },
+  [mutations.UPDATE_WEEK]: (state, payload) => { state.week = payload; },
 };
