@@ -1,6 +1,6 @@
 import * as mutations from './mutationTypes';
 
 export default {
-  [mutations.updateGroup]: (state, payload) => { state.group = payload; },
-  [mutations.updateWeek]: (state, payload) => { state.week = payload; },
+  [mutations.UPDATE_GROUP]: (state, payload) => { state.group = payload; },
+  [mutations.UPDATE_WEEK]: (state, payload) => { state.week = payload; },
 };

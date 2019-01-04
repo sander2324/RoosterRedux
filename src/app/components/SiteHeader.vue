@@ -5,11 +5,11 @@
     </div>
     <div class="header__SearchBox">
       <input
+        v-model="groupInput"
         class="header__SearchBox__input"
         type="text"
         placeholder="Vul hier je klas in"
         @keyup.enter="submitGroup"
-        v-model="groupInput"
       >
     </div>
     <div class="header__GroupDisplay">
@@ -19,19 +19,20 @@
 </template>
 
 <script>
+import * as actions from '../store/actionTypes';
+import * as mutations from '../store/mutationTypes';
+
 export default {
   data() {
     return {
-      groupInput: ''
+      groupInput: '',
     };
   },
   methods: {
     submitGroup() {
-      this.$store.commit('updateGroup', this.groupInput);
-      this.$store.dispatch('getWeek');
-      console.log(this.$store.state.group);
-      console.log(this.$store.state.week);
-    }
-  }
-}
+      this.$store.commit(mutations.UPDATE_GROUP, this.groupInput);
+      this.$store.dispatch(actions.GET_WEEK);
+    },
+  },
+};
 </script>

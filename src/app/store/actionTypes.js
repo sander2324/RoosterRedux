@@ -1,2 +1,2 @@
-export const SET_COUNTER = 'SET_COUNTER';
-export const getWeek = 'getWeek';
+/* eslint-disable import/prefer-default-export */
+export const GET_WEEK = 'GET_WEEK';
