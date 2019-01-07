@@ -13,7 +13,7 @@
       >
     </div>
     <div class="header__GroupDisplay">
-      <h3>Rooster voor groep: (groepnaam)</h3>
+      <h3>Rooster voor groep: {{ group }}</h3>
     </div>
   </div>
 </template>
@@ -27,6 +27,9 @@ export default {
     return {
       groupInput: '',
     };
+  },
+  computed: {
+    group() { return this.$store.state.group.toUpperCase(); },
   },
   methods: {
     submitGroup() {
