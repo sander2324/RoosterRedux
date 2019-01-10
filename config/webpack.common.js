@@ -1,19 +1,17 @@
-/*eslint-disable*/
 const path = require('path');
 
 // Require some handy plugins
 const CleanWebpackPlugin = require('clean-webpack-plugin'); // Used to clean the dist folder on every build.
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // Used to inject the correct script tags inside index.html
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');  // Used to bundle styles together.
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // Used to bundle styles together.
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin'); // Can't beat that name! Used to optimize generated css for size.
 const TerserPlugin = require('terser-webpack-plugin'); // Used to optimize bundled javascript for size.
-const VueLoaderPlugin = require('vue-loader/lib/plugin') // This adds support for .vue files
+const VueLoaderPlugin = require('vue-loader/lib/plugin'); // This adds support for .vue files
 
 // Behold! The mighty Webpack config!
 module.exports = {
   entry: {
-    // Start looking for things to bundle/optimize from here. Webpack will look for require/import calls.
-    app: './src/app/index.js',
+    app: './src/app/index.js', // Start looking for things to bundle/optimize from here. Webpack will look for require/import calls.
   },
   output: {
     // Put bundled javascript inside the dist folder
@@ -22,8 +20,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.runtime.common.js' // This will force a more lightweight version of Vue. Saving 20% on bundle size!
-    }
+      vue$: 'vue/dist/vue.runtime.common.js', // This will force a more lightweight version of Vue. Saving 20% on bundle size!
+    },
   },
   module: {
     // Rules define which files get a makeover by Webpack!
@@ -35,7 +33,7 @@ module.exports = {
       ],
     }, {
       test: /\.vue$/,
-      loader: 'vue-loader'
+      loader: 'vue-loader',
     }, {
       test: /\.scss$/,
       use: [
@@ -85,15 +83,9 @@ module.exports = {
     }),
     // Bundle css
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: '[name].[contenthash].css',
       chunkFilename: '[id].css',
     }),
     new VueLoaderPlugin(),
   ],
-  // Dev server configuration.
-  devServer: {
-    contentBase: path.resolve(process.cwd(), 'dist/'),
-    compress: true,
-    port: 8080,
-  },
 };
