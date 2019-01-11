@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+- 10.14.2
+branches:
+  only:
+  - master
+install:
+- npm ci
+cache:
+  directories:
+  - "$HOME/.npm"
+jobs:
+  include:
+  - stage: Tests
+    name: Linting
+    script: npm run lint
+  - stage: Build
+    name: Deploy to Firebase
+    script: npm run build
+    deploy:
+      provider: firebase
+      skip_cleanup: true
+      token:
+        secure: GuBxuqtHh3dlI1eRpoPdmu85wAY5Q9nhsFyJm5stshDm+mXhnaHE86csbjKlaHhofaOJE2sQsyukn6dOiEtYu5YpCt8qjyHRGfin59P2pCt0aCQJBxPk1qWWN3TlKS8WLGINbPzgijH4BaMfcKZVnmb+rXzNWrIswMzdNoU/LKMzdx+7djyK+upu1MBVorf3vBEIgUaincYgZzrFgyd2FQTWOyrRqHjTpUrxHp6mzU7YRps1CxUhsLfv0jvYu5IHSMGayBdqRw2oxj1KFQ0Pitmd+349moGsfKnmF47ZUFrz/tsDOU2JJoJeKwsMujtCDUUdOoUOOrDgUBcMuGI45o/tSKcWW1tOVziEIuNrS6I8gM9blBMJ2/9OmFFtoCvY1w3KxWQX0GAd78jlPsYdhi1bel0lDQtlmm5uj86R13tSyGkavo63sHbpPAaHoUL1zeMzPDiqrpaCTaopQP4vXXLrN0c5nJ5B6x5YdJPm0OQlBpM2ZPlv7ML0ZX7ZtjyotOvpvH1JmeelZqfLPQpM+k7mwEQwxDGNTnI0H8uK9QBBnb7/Ra57+6BHyqWy4KSHELS+fY0SR7UT1Xtbq1TFr46hHttINs8xAEFuWpvg+zfsnKlUJg4LSZzIquqt1qLbOnHn7f7ftzN+Y5XWItNtzmfd4JZiRoJYvEP3KAHqpd0=
+      project: droster-45eb9
+      message: Auto deployment from Travis
+notifications:
+  slack:
+    secure: xPOthUsG6s0J5ozxVoTs16PTRNByW1Ryg9UZE8ez7yImmbdm532phT98qs+3KWWxNMbOFrzNH5YDeKfezDJC1GnUH4QIEzHegAc9r2f+ZzAdHUgJMqpUHNtnNmPB15q5TsLE4h2W4sxNtlkR25E7AcgwRxYtyhp4svBWredGw0McePuWAGLhcsgqPuM/72CAqq10fDEkC62r1HbHEf2L1FlB1YKp415QsXG/DBeRM32ATqf76vp2u24hs87keecizz8QJkn9RD7/LeN8SYj9w17PqdbBFMpFL/Ja4yukRAoCi1ywMPK9uqSiH4YlJEWROQOiRfIYZUGuCqBK9gFcHug2VJ3U+MKJQ3JFqslH/EAHjED3g1w1uNhTqeu5+3xmlTtDi4VgfGpgr7ICrx+8DBbU9WVjDv5bYqdzLBPWUdRs4xglblUa19+VbHw81eYN59OI8SrwiNyf+5sXnY+OWgW7qftGE1bUbmQiA/RZXR6HvpHuTjQfP82ZrNMRV/6BvApYnqwS9rIbuPRt9Bx/ybJZEGAlfW3JRyCddg5Q//XYk+lrr330pwv7wPjNXVraDXvsE+TSxsbLs/Wqj3e8eBTsjOdgtCXgkLicezqsxsHXH9boTdSgEtVvaQcCrT8qANj0WAMsB8TuVtzJhdO44KQMjaz1Xgp2gBDZy8QuzIk=
