@@ -12,8 +12,3 @@ node_modules/
 firebase-debug.log*
 # Firebase cache
 .firebase/
-
-
-
-# Ignore the package lock because it differs between platforms and thus gets update all the time.
-package-lock.json
