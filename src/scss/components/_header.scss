@@ -31,13 +31,32 @@
 .header__SearchBox {
   display: grid;
   justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: 'previous input next' 'previous weekDisplay next';
 }
 
-.header__weekbtn {
+.header__SearchBox__weekbtn {
   width: 4em;
   height: 2em;
-  background-color: #ccc;
   cursor: pointer;
+  color: grey;
+  text-align: center;
+  background-color: #ffffff;
+  margin-top: 22px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: 4px;
+  border-radius: 5px;
+}
+
+.header__SearchBox__weekbtn:nth-child(odd) {
+  margin-left: auto;
+  grid-area: previous;
+}
+
+.header__SearchBox__weekbtn:nth-child(even) {
+  margin-right: auto;
+  grid-area: next;
 }
 
 .header__SearchBox__input {
@@ -46,6 +65,16 @@
   text-align: center;
   border: 0;
   border-radius: 5px;
+  grid-area: input;
+}
+
+.header__SearchBox__weekDisplay {
+  text-align: center;
+  grid-area: weekDisplay;
+}
+
+.header_weekDisplay {
+  grid-area: weekDisplay;
 }
 
 .header__GroupDisplay {
@@ -59,6 +88,7 @@
 }
 
 @media(max-width: 700px) {
+
   .header__title > h2,
   .header__GroupDisplay > h3 {
     display: none !important;
