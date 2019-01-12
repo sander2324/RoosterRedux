@@ -24,8 +24,6 @@
 import * as actions from '../store/actionTypes';
 import * as mutations from '../store/mutationTypes';
 
-import weekNumber from '../helpers/getCurrentWeekNum';
-
 export default {
   data() {
     return {
@@ -37,21 +35,17 @@ export default {
     weekNum() { return this.$store.state.weekNumber; },
   },
   methods: {
-    updateGroup() {
-      this.$store.dispatch(actions.GET_WEEK);
-    },
     submitGroup() {
       // Make the weekNumber reset to the current one every time the user enter in a new group
       this.$store.commit(mutations.UPDATE_GROUP, this.groupInput);
-      this.updateGroup();
+      this.$store.dispatch(actions.GET_WEEK);
     },
     updateWeekNumber(num) {
-      this.$store.commit(mutations.UPDATE_WEEK_NUMBER, num);
-      if(this.$store.state.group != '') this.updateGroup();
+      this.$store.dispatch(actions.UPDATE_WEEK_NUMBER, num);
     },
   },
   mounted() {
-    this.$store.commit(mutations.UPDATE_WEEK_NUMBER, weekNumber);
+    this.$store.dispatch(actions.SET_CURRENT_WEEK_NUMBER);
   },
 };
 </script>

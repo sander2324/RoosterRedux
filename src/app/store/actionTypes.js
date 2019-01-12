@@ -1,2 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 export const GET_WEEK = 'GET_WEEK';
+export const SET_CURRENT_WEEK_NUMBER = 'SET_CURRENT_WEEK_NUMBER';
+export const UPDATE_WEEK_NUMBER = 'UPDATE_WEEK_NUMBER';
