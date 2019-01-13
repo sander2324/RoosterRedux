@@ -3,27 +3,27 @@
     <div class="header__title">
       <h2>Deltion Roosters Redux</h2>
     </div>
-    <div class="header__SearchBox">
+    <div class="SearchBox">
       <div
-        class="header__SearchBox__weekbtn noselect"
+        class="SearchBox__weekbtn noselect"
         @click="updateWeekNumber(-1)"
       >
         &lt;
       </div>
       <input
         v-model="groupInput"
-        class="header__SearchBox__input"
+        class="SearchBox__input"
         type="text"
         placeholder="Vul hier je klas in"
         @keyup.enter="submitGroup"
       >
       <div
-        class="header__SearchBox__weekDisplay"
+        class="SearchBox__weekDisplay"
       >
         Week {{ weekNum }}
       </div>
       <div
-        class="header__SearchBox__weekbtn noselect"
+        class="SearchBox__weekbtn noselect"
         @click="updateWeekNumber(1)"
       >
         &gt;
