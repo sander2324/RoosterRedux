@@ -2,8 +2,9 @@ import axios from 'axios';
 import filterAPI from '../helpers/filterAPIdata';
 import * as actions from './actionTypes';
 import * as mutations from './mutationTypes';
+import currentWeekNumFunc from '../helpers/getCurrentWeekNum';
 
-import currentWeekNum from '../helpers/getCurrentWeekNum';
+let currentWeekNum = currentWeekNumFunc();
 
 export default {
   [actions.GET_WEEK]: async (context) => {
@@ -14,7 +15,8 @@ export default {
       context.state.weekNumber));
   },
   [actions.SET_CURRENT_WEEK_NUMBER]: async (context) => {
-    context.commit(mutations.UPDATE_WEEK_NUMBER, currentWeekNum());
+    if (new Date().getDay() === 0 || new Date().getDay() === 1) currentWeekNum += 1;
+    context.commit(mutations.UPDATE_WEEK_NUMBER, currentWeekNum);
   },
   [actions.UPDATE_WEEK_NUMBER]: async (context, payload) => {
     context.commit(mutations.UPDATE_WEEK_NUMBER, payload);
