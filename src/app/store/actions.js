@@ -15,7 +15,7 @@ export default {
       context.state.weekNumber));
   },
   [actions.SET_CURRENT_WEEK_NUMBER]: async (context) => {
-    if (new Date().getDay() === 0 || new Date().getDay() === 1) currentWeekNum += 1;
+    if (new Date().getDay() === 0 || new Date().getDay() === 6) currentWeekNum += 1;
     context.commit(mutations.UPDATE_WEEK_NUMBER, currentWeekNum);
   },
   [actions.UPDATE_WEEK_NUMBER]: async (context, payload) => {
