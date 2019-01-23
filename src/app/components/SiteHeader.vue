@@ -4,34 +4,38 @@
       <h2>Deltion Roosters Redux</h2>
     </div>
     <div class="SearchBox">
-      <div
-        class="SearchBox__weekbtn noselect"
+      <a
+        class="SearchBox__weekbtn button"
         @click="updateWeekNumber(-1)"
       >
-        &lt;
-      </div>
+        <img
+          src="../../svg/arrow-left.svg"
+          alt="<"
+        >
+      </a>
       <input
         v-model="groupInput"
-        class="SearchBox__input"
+        class="SearchBox__input input is-loading"
         type="text"
         placeholder="Vul hier je klas in"
         @keyup.enter="submitGroup"
       >
       <div
-        class="SearchBox__weekDisplay"
+        class="SearchBox__infoDisplay box"
       >
-        Week {{ weekNum }}
+        {{ rosterInfo }}
       </div>
-      <div
-        class="SearchBox__weekbtn noselect"
+      <a
+        class="SearchBox__weekbtn button"
         @click="updateWeekNumber(1)"
       >
-        &gt;
-      </div>
+        <img
+          src="../../svg/arrow-right.svg"
+          alt=">"
+        >
+      </a>
     </div>
-    <div class="header__GroupDisplay">
-      <h3>Rooster voor groep: {{ group }}</h3>
-    </div>
+    <div class="header__SocialDisplay" />
   </div>
 </template>
 
@@ -46,8 +50,12 @@ export default {
     };
   },
   computed: {
-    group() { return this.$store.state.group.toUpperCase(); },
-    weekNum() { return this.$store.state.weekNumber; },
+    rosterInfo() {
+      if (this.$store.state.group !== '') {
+        return `Groep ${this.$store.state.group.toUpperCase()}, week ${this.$store.state.weekNumber}`;
+      }
+      return '';
+    },
   },
   mounted() {
     this.$store.dispatch(actions.SET_CURRENT_WEEK_NUMBER);
@@ -62,6 +70,7 @@ export default {
     updateWeekNumber(num) {
       this.$store.dispatch(actions.UPDATE_WEEK_NUMBER, num);
     },
+
   },
 };
 </script>
