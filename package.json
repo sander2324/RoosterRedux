@@ -5,9 +5,9 @@
   "scripts": {
     "build": "webpack --config=./config/webpack.production.js",
     "dev": "webpack-dev-server --config=./config/webpack.development.js",
-    "lint": "eslint 'src/app/**' && stylelint 'src/**/*.scss'",
-    "lint-js": "eslint 'src/app/**'",
-    "fix-js": "eslint 'src/app/**' --fix",
+    "lint": "eslint \"src/app/**\" && stylelint 'src/**/*.scss'",
+    "lint-js": "eslint \"src/app/**\"",
+    "fix-js": "eslint \"src/app/**\" --fix",
     "lint-styles": "stylelint 'src/**/*.scss' --color --cache",
     "fix-styles": "stylelint 'src/**/*.scss' --color --cache --fix"
   },
