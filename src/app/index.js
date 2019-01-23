@@ -1,5 +1,6 @@
 import '@babel/polyfill';
 import Vue from 'vue';
+import 'bulma/css/bulma.css';
 import '../scss/index.scss';
 
 import store from './store';

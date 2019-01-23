@@ -3,7 +3,7 @@
   height: 5em;
   margin-bottom: 3em;
   color: #f4f4f4;
-  background-color: $brand-primary;
+  background-color: #018574;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
@@ -15,7 +15,7 @@
     margin-left: 13px;
   }
 
-  &__GroupDisplay {
+  &__SocialDisplay {
     text-align: right;
     margin: 0;
     margin-right: 13px;
@@ -36,34 +36,30 @@
   display: grid;
   justify-content: center;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: 'previous input next' 'previous weekDisplay next';
+  grid-template-areas: 'previous infoDisplay next' 'previous input next';
 
   &__input {
-    height: 3em;
-    margin-top: 18px;
     text-align: center;
-    border: 0;
-    border-radius: 5px;
     grid-area: input;
+    width: 10.5em;
   }
 
-  &__weekDisplay {
+  &__infoDisplay {
     text-align: center;
-    grid-area: weekDisplay;
+    grid-area: infoDisplay;
+    height: 1.5em;
+    padding: 0;
+    margin-top: 0.39em;
+    margin-bottom: 0 !important;
+    width: 10.5em;
   }  
 
   &__weekbtn {
-    width: 4em;
-    height: 2em;
-    cursor: pointer;
-    color: grey;
-    text-align: center;
-    background-color: #ffffff;
-    margin-top: 22px;
+    margin-top: 2.3em;
     margin-left: 5px;
     margin-right: 5px;
-    padding-top: 4px;
     border-radius: 5px;
+    width: 2.5em;
 
     &:nth-child(odd) {
       margin-left: auto;
