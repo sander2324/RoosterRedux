@@ -15,6 +15,7 @@ jobs:
     name: Linting
     script: npm run lint
   - stage: Build
+    if: branch = master
     name: Deploy to Firebase
     script: npm run build
     deploy:
