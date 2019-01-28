@@ -19,7 +19,13 @@ export default {
     context.commit(mutations.UPDATE_WEEK_NUMBER, currentWeekNum);
   },
   [actions.UPDATE_WEEK_NUMBER]: async (context, payload) => {
-    context.commit(mutations.UPDATE_WEEK_NUMBER, payload);
+    if (context.state.weekNumber === 1 && payload === -1) {
+      context.commit(mutations.SET_WEEK_NUMBER, 52);
+    } else if (context.state.weekNumber === 52 && payload === 1) {
+      context.commit(mutations.SET_WEEK_NUMBER, 1);
+    } else {
+      context.commit(mutations.UPDATE_WEEK_NUMBER, payload);
+    }
     if (context.state.group !== '') context.dispatch(actions.GET_WEEK);
   },
 };
