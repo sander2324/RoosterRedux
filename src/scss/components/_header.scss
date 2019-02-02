@@ -35,7 +35,7 @@
 .SearchBox {
   display: grid;
   justify-content: center;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 10.5em 1fr;
   grid-template-areas: 'previous infoDisplay next' 'previous input next';
 
   &__input {
@@ -45,6 +45,7 @@
   }
 
   &__infoDisplay {
+    margin-right: 0;
     text-align: center;
     grid-area: infoDisplay;
     height: 1.5em;
@@ -55,8 +56,8 @@
   }  
 
   &__weekbtn {
-    margin-top: 2.3em;
     margin-left: 5px;
+    margin-top: 2.3em;
     margin-right: 5px;
     border-radius: 5px;
     width: 2.5em;
