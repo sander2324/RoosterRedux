@@ -4,7 +4,7 @@ clean:
 	rm -rf dist/
 
 start:
-	npm start
+	npm run dev
 
 build:
 	npm run build
