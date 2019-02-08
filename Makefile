@@ -1,9 +1,9 @@
-default: clean install start
+default: clean install dev
 
 clean:
 	rm -rf dist/
 
-start:
+dev:
 	npm run dev
 
 build:
