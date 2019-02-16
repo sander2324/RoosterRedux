@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="header__title">
-      <h2>Deltion Roosters Redux</h2>
+      <h2>RoosterRedux</h2>
     </div>
     <div class="SearchBox">
       <a

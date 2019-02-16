@@ -1,5 +1,5 @@
-# Deltion Rooster Redux
-[![Build Status](https://travis-ci.org/sander2324/DeltionRoosterRedux.svg?branch=master)](https://travis-ci.org/sander2324/DeltionRoosterRedux)
+# RoosterRedux
+[![Build Status](https://travis-ci.org/sander2324/RoosterRedux.svg?branch=master)](https://travis-ci.org/sander2324/RoosterRedux)
 
 A cleaner redesign of the Deltion roster site.
 
