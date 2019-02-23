@@ -5,7 +5,7 @@
       :key="day.date"
       class="daybox"
     >
-      <div class="daybox__title">
+      <div class="daybox__title box">
         {{ day.date_f }}
       </div>
       <div
@@ -38,7 +38,7 @@ export default {
     chopCourseName(name) {
       if (name.length < 7) return name;
       let finalName = '';
-      for(let i = 0; i < 6; i++) {
+      for (let i = 0; i < 6; i++) {
         finalName += name[i];
       }
       finalName += '..';
