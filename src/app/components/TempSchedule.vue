@@ -5,7 +5,7 @@
       :key="day.date"
       class="daybox"
     >
-      <div class="daybox__title">
+      <div class="daybox__title box">
         {{ day.date_f }}
       </div>
       <div
@@ -17,10 +17,7 @@
           {{ course.t }}
         </div>
         <div class="coursebox__name">
-          {{ course.v }}
-        </div>
-        <div class="coursebox__lecturer">
-          {{ course.l }}
+          {{ chopCourseName(course.v) }}
         </div>
         <div class="coursebox__room">
           {{ course.r }}
@@ -36,6 +33,17 @@ export default {
   computed: {
     group() { return this.$store.state.group; },
     week() { return this.$store.state.week; },
+  },
+  methods: {
+    chopCourseName(name) {
+      if (name.length < 7) return name;
+      let finalName = '';
+      for (let i = 0; i < 6; i++) {
+        finalName += name[i];
+      }
+      finalName += '..';
+      return finalName;
+    },
   },
 };
 </script>

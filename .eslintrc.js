@@ -15,5 +15,6 @@ module.exports = {
     "no-console": "off",
     // We want to be able to modify the state from our mutations.
     "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["state"] }],
+    "no-plusplus": "off",
   },
 };
