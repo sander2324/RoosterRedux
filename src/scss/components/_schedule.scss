@@ -1,11 +1,4 @@
 /* stylelint-disable */
-.dayItem {
-  margin: auto;
-  width: 400px;
-  min-height: 200px;
-  background-color: red;
-  border-radius: 5px;
-}
 
 .daybox__title {
   text-align: center;
@@ -21,7 +14,7 @@
   margin-left: 10px;
   margin-bottom: 10px;
   background-color: #e1e1e1;
-  width: 290px;
+  width: 300px;
   min-height: 250px;
   border-radius: 5px;
 }
@@ -36,8 +29,8 @@
   border-radius: 5px;
   text-align: center;
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  grid-template-areas: "timeframe course lecturer" "timeframe course room";
+  grid-template-columns: 1.3fr 1fr 1fr;
+  grid-template-areas: "timeframe course room" "timeframe course room";
 }
 
 .coursebox > div:nth-child(even) {
@@ -55,8 +48,10 @@
 }
 
 .coursebox__timespan,
- .coursebox__name {
-  padding-top: 14px;
+ .coursebox__name,
+  .coursebox__room {
+  /* padding-top: 14px; */
+  line-height: 45px;
 }
 
 .coursebox__lecturer {
@@ -64,8 +59,9 @@
   grid-area: lecturer;
 }
 
-.course__room {
+.coursebox__room {
   grid-area: room;
+  border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   background-color: #f4f4f4;
 }

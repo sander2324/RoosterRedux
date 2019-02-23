@@ -15,7 +15,7 @@
       </a>
       <input
         v-model="groupInput"
-        class="SearchBox__input input is-loading"
+        class="SearchBox__input input"
         type="text"
         placeholder="Vul hier je klas in"
         @keyup.enter="submitGroup"
