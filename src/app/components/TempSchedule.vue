@@ -1,6 +1,12 @@
 <template>
   <div class="scheduleArea">
     <div
+      v-if="week === false"
+      class="wrongClassError"
+    >
+      <h2>Deze klas bestaat niet</h2>
+    </div>
+    <div
       v-for="day in week"
       :key="day.date"
       class="daybox"

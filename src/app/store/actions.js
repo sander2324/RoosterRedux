@@ -11,7 +11,7 @@ export default {
     const weekData = await axios.get(`https://roosters-api.stormheg.co/api/v1/roster?group=${context.state.group}`).catch((err) => {
       console.log(err);
     });
-    context.commit(mutations.UPDATE_WEEK, filterAPI(weekData.data.data,
+    context.commit(mutations.UPDATE_WEEK, filterAPI(weekData.data,
       context.state.weekNumber));
   },
   [actions.SET_CURRENT_WEEK_NUMBER]: async (context) => {
