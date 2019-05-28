@@ -3,19 +3,27 @@ import filterAPI from '../helpers/filterAPIdata';
 import * as actions from './actionTypes';
 import * as mutations from './mutationTypes';
 import currentWeekNumFunc from '../helpers/getCurrentWeekNum';
+import getTimeStamps from '../helpers/getTimestamps';
+
+const isWeekend = (new Date().getDay() === 0 || new Date().getDay() === 6);
 
 let currentWeekNum = currentWeekNumFunc();
 
 export default {
   [actions.GET_WEEK]: async (context) => {
-    const weekData = await axios.get(`https://roosters-api.stormheg.co/api/v1/roster?group=${context.state.group}`).catch((err) => {
+    // Declare the start and end time
+    const [start, end] = getTimeStamps(context.state.weekNumber);
+    const weekData = await axios({
+      method: 'GET',
+      url: `https://roosters-api.stormheg.co/api/v1/roster?group=${context.state.group}&start=${start}&end=${end}`,
+    }).catch((err) => {
       console.log(err);
     });
     context.commit(mutations.UPDATE_WEEK, filterAPI(weekData.data,
       context.state.weekNumber));
   },
   [actions.SET_CURRENT_WEEK_NUMBER]: async (context) => {
-    if (new Date().getDay() === 0 || new Date().getDay() === 6) currentWeekNum += 1;
+    if (isWeekend) currentWeekNum += 1;
     context.commit(mutations.UPDATE_WEEK_NUMBER, currentWeekNum);
   },
   [actions.UPDATE_WEEK_NUMBER]: async (context, payload) => {
