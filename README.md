@@ -13,5 +13,5 @@ A cleaner redesign of the Deltion roster site.
 3. Run `npm run build` to build for production. Generated files can be found inside the `dist` folder.
 
 ## License
-Deltion Rooster Redux is licensed under the MIT license.
+RoosterRedux is licensed under the GNU General Public License v3.0.
 For more information see [LICENSE](LICENSE).
