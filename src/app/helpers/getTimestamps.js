@@ -1,7 +1,5 @@
 // Amount of miliseconds in a week
 const weekMiliSeconds = 604800000;
-// Current time in UNIX time
-const currentDate = +new Date();
 
 // Add a zero to the date Value number if it is < 10 to match the YYYYMMDD format
 function parseDateValue(dateVal) {
@@ -36,16 +34,13 @@ function getDateOfISOWeek(week, year) {
 
 // get starting and ending timestamp for the roster API
 export default (week) => {
-  console.log(week);
-  console.log(currentDate);
   let startTime = getDateOfISOWeek(week, 2019);
-  console.log(startTime);
   // set the endTime to one week after the startTime
   let endTime = startTime + weekMiliSeconds;
 
   // Convert both the start and end time to match the API needs
   startTime = convertTimeFormat(startTime);
   endTime = convertTimeFormat(endTime);
-  console.log(startTime, endTime);
+
   return [startTime, endTime];
 };
