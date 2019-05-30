@@ -12,6 +12,7 @@ export default new Vuex.Store({
     group: '',
     week: [],
     weekNumber: 0,
+    isLoading: false,
   },
   mutations,
   actions,
