@@ -47,7 +47,6 @@ export default {
   computed: {
     group() { return this.$store.state.group; },
     week() { return this.$store.state.week; },
-    isLoading() { return this.$store.state.isLoading; },
   },
   methods: {
     chopCourseName(name) {
