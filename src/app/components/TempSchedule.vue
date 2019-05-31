@@ -58,6 +58,7 @@ export default {
       finalName += '..';
       return finalName;
     },
+
     // Determine if the current course has a break between the next course
     hasBreak(currentCourse, dayItems) {
       const index = this.getCurrentCourseIndex(currentCourse, dayItems);
@@ -67,6 +68,7 @@ export default {
       }
       return false;
     },
+
     getCurrentCourseIndex(currentCourse, dayItems) {
       let index;
       for (let i = 0; i < dayItems.length; i++) {
@@ -74,6 +76,7 @@ export default {
       }
       return index;
     },
+
     getBreakTime(currentCourse, dayItems) {
       if (!this.hasBreak(currentCourse, dayItems)) return '';
       const index = this.getCurrentCourseIndex(currentCourse, dayItems);

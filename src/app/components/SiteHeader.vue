@@ -1,42 +1,54 @@
 <template>
-  <div class="header">
-    <div class="header__title">
-      <h2>RoosterRedux</h2>
-    </div>
-    <div class="SearchBox">
-      <a
-        class="SearchBox__weekbtn button"
-        @click="updateWeekNumber(-1)"
-      >
-        <img
-          src="../../svg/arrow-left.svg"
-          alt="<"
-        >
-      </a>
-      <input
-        v-model="groupInput"
-        class="SearchBox__input input"
-        type="text"
-        placeholder="Vul hier je klas in"
-        @keyup.enter="submitGroup"
-      >
-      <div
-        class="SearchBox__infoDisplay box"
-      >
-        {{ rosterInfo }}
+  <header>
+    <div class="header">
+      <div class="header__title">
+        <h2>RoosterRedux</h2>
       </div>
-      <a
-        class="SearchBox__weekbtn button"
-        @click="updateWeekNumber(1)"
-      >
-        <img
-          src="../../svg/arrow-right.svg"
-          alt=">"
+      <div class="SearchBox">
+        <a
+          class="SearchBox__weekbtn button"
+          @click="updateWeekNumber(-1)"
         >
-      </a>
+          <img
+            src="../../svg/arrow-left.svg"
+            alt="<"
+          >
+        </a>
+        <input
+          v-model="groupInput"
+          class="SearchBox__input input"
+          type="text"
+          placeholder="Vul hier je klas in"
+          @keyup.enter="submitGroup"
+        >
+        <div
+          class="SearchBox__infoDisplay box"
+        >
+          {{ rosterInfo }}
+        </div>
+        <a
+          class="SearchBox__weekbtn button"
+          @click="updateWeekNumber(1)"
+        >
+          <img
+            src="../../svg/arrow-right.svg"
+            alt=">"
+          >
+        </a>
+      </div>
+      <div class="header__SocialDisplay" />
     </div>
-    <div class="header__SocialDisplay" />
-  </div>
+    <div class="loadingArea">
+      <div
+        v-if="isLoading"
+        class="loadingArea__loader"
+      >
+        <span class="loadingArea__loader__dot" />
+        <span class="loadingArea__loader__dot" />
+        <span class="loadingArea__loader__dot" />
+      </div>
+    </div>
+  </header>
 </template>
 
 <script>
@@ -56,6 +68,7 @@ export default {
       }
       return '';
     },
+    isLoading() { return this.$store.state.isLoading; },
   },
   mounted() {
     this.$store.dispatch(actions.SET_CURRENT_WEEK_NUMBER);

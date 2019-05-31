@@ -11,8 +11,12 @@ let currentWeekNum = currentWeekNumFunc();
 
 export default {
   [actions.GET_WEEK]: async (context) => {
+    // Activate the loading animation
+    context.commit(mutations.SET_LOADING, true);
     // Declare the start and end time
     const [start, end] = getTimeStamps(context.state.weekNumber);
+    // Clear the week array
+    context.commit(mutations.UPDATE_WEEK, []);
     const weekData = await axios({
       method: 'GET',
       url: `https://roosters-api.stormheg.co/api/v1/roster?group=${context.state.group}&start=${start}&end=${end}`,
@@ -21,11 +25,15 @@ export default {
     });
     context.commit(mutations.UPDATE_WEEK, filterAPI(weekData.data,
       context.state.weekNumber));
+    // Disable the loading animation
+    context.commit(mutations.SET_LOADING, false);
   },
+
   [actions.SET_CURRENT_WEEK_NUMBER]: async (context) => {
     if (isWeekend) currentWeekNum += 1;
     context.commit(mutations.UPDATE_WEEK_NUMBER, currentWeekNum);
   },
+
   [actions.UPDATE_WEEK_NUMBER]: async (context, payload) => {
     if (context.state.weekNumber === 1 && payload === -1) {
       context.commit(mutations.SET_WEEK_NUMBER, 52);
