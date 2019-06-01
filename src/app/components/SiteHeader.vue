@@ -38,16 +38,6 @@
       </div>
       <div class="header__SocialDisplay" />
     </div>
-    <div class="loadingArea">
-      <div
-        v-if="isLoading"
-        class="loadingArea__loader"
-      >
-        <span class="loadingArea__loader__dot" />
-        <span class="loadingArea__loader__dot" />
-        <span class="loadingArea__loader__dot" />
-      </div>
-    </div>
   </header>
 </template>
 
@@ -68,7 +58,6 @@ export default {
       }
       return '';
     },
-    isLoading() { return this.$store.state.isLoading; },
   },
   mounted() {
     this.$store.dispatch(actions.SET_CURRENT_WEEK_NUMBER);

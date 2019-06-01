@@ -1,6 +1,16 @@
 <template>
   <div class="scheduleArea">
     <div
+      v-if="isLoading"
+      class="loadingArea"
+    >
+      <div class="loadingArea__loader">
+        <span class="loadingArea__loader__dot" />
+        <span class="loadingArea__loader__dot" />
+        <span class="loadingArea__loader__dot" />
+      </div>
+    </div>
+    <div
       v-if="week === false"
       class="wrongClassError"
     >
@@ -32,7 +42,7 @@
         </div>
         <div
           v-if="hasBreak(course, day.items)"
-          class="breakbox"
+          class="coursebox__break"
         >
           {{ getBreakTime(course, day.items) }}
         </div>
@@ -47,6 +57,7 @@ export default {
   computed: {
     group() { return this.$store.state.group; },
     week() { return this.$store.state.week; },
+    isLoading() { return this.$store.state.isLoading; },
   },
   methods: {
     chopCourseName(name) {
