@@ -63,7 +63,9 @@ export default {
     this.$store.dispatch(actions.SET_CURRENT_WEEK_NUMBER);
   },
   methods: {
-    submitGroup() {
+    submitGroup(elem) {
+      // Unfocus the input box
+      elem.target.blur();
       // Make the weekNumber reset to the current one every time the user enter in a new group
       this.$store.commit(mutations.UPDATE_GROUP, this.groupInput);
       this.groupInput = '';
@@ -72,7 +74,6 @@ export default {
     updateWeekNumber(num) {
       this.$store.dispatch(actions.UPDATE_WEEK_NUMBER, num);
     },
-
   },
 };
 </script>
