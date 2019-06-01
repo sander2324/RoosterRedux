@@ -49,7 +49,6 @@
         "color-hex-case": "lower",
         "color-hex-length": "long",
         "color-no-invalid-hex": true,
-        "string-quotes": "single",
         "value-no-vendor-prefix": true,
         "value-list-comma-space-after": "always-single-line",
         "shorthand-property-no-redundant-values": true,
