@@ -61,12 +61,16 @@ export default {
   },
   mounted() {
     this.$store.dispatch(actions.SET_CURRENT_WEEK_NUMBER);
+    // If the user entered a group in the URL ({host}/{groupname}) show that group right away!
+    if (this.$route.params.group) {
+      this.$store.commit(mutations.UPDATE_GROUP, this.$route.params.group);
+      this.$store.dispatch(actions.GET_WEEK);
+    }
   },
   methods: {
     submitGroup(elem) {
       // Unfocus the input box
       elem.target.blur();
-      // Make the weekNumber reset to the current one every time the user enter in a new group
       this.$store.commit(mutations.UPDATE_GROUP, this.groupInput);
       this.groupInput = '';
       this.$store.dispatch(actions.GET_WEEK);
