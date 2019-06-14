@@ -9,7 +9,14 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/', component: HomeView,
+      path: '/',
+      component: HomeView,
+      children: [
+        {
+          path: '/:group',
+          props: true,
+        },
+      ],
     },
   ],
 });
