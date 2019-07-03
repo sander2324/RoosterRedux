@@ -44,7 +44,6 @@
 <script>
 import * as actions from '../store/actionTypes';
 import * as mutations from '../store/mutationTypes';
-import { constants } from 'crypto';
 
 export default {
   data() {
