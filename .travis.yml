@@ -1,23 +1,21 @@
 language: node_js
 node_js:
-- 10.14.2
+- 12
 branches:
   only:
   - master
 install:
-- npm ci
-cache:
-  directories:
-  - "$HOME/.npm"
+- yarn
+cache: yarn
 jobs:
   include:
   - stage: Tests
     name: Linting
-    script: npm run lint
+    script: yarn run lint
   - stage: Build
     if: branch = master
     name: Deploy to Firebase
-    script: npm run build
+    script: yarn run build
     deploy:
       provider: firebase
       skip_cleanup: true
