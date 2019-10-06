@@ -1,7 +1,7 @@
 const path = require('path');
 
 // Require some handy plugins
-const CleanWebpackPlugin = require('clean-webpack-plugin'); // Used to clean the dist folder on every build.
+const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // Used to clean the dist folder on every build.
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // Used to inject the correct script tags inside index.html
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // Used to bundle styles together.
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin'); // Can't beat that name! Used to optimize generated css for size.
@@ -80,9 +80,7 @@ module.exports = {
   },
   plugins: [
     // Clean the dist folder
-    new CleanWebpackPlugin(['dist'], {
-      root: process.cwd(),
-    }),
+    new CleanWebpackPlugin(),
     // Take src/index.html as base and inject script tags to make things work!
     new HtmlWebpackPlugin({
       template: path.resolve(process.cwd(), 'src/index.html'),
@@ -90,7 +88,7 @@ module.exports = {
     // Bundle css
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
-      chunkFilename: '[id].css',
+      chunkFilename: 'vendor.[contenthash].css',
     }),
     new VueLoaderPlugin(),
   ],
