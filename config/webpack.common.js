@@ -14,6 +14,8 @@ module.exports = {
     app: './src/app/index.js', // Start looking for things to bundle/optimize from here. Webpack will look for require/import calls.
   },
   output: {
+    publicPath: '/',
+
     // Put bundled javascript inside the dist folder
     path: path.resolve(process.cwd(), 'dist/'),
     filename: '[name].js',
