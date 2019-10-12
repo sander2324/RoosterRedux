@@ -77,7 +77,7 @@ export default {
 
     // Change the URL of the address bar without reloading the page
     changeUrl(group) {
-      window.history.pushState(group, `RoosterRedux | ${group}`, `/${group}`);
+      window.history.pushState(group, `RoosterRedux | ${group}`, `/group/${group}`);
       this.changeTitle(group);
     },
 

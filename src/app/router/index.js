@@ -13,7 +13,7 @@ export default new Router({
       component: HomeView,
       children: [
         {
-          path: '/:group',
+          path: '/group/:group',
           props: true,
         },
       ],

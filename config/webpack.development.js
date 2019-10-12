@@ -10,7 +10,8 @@ module.exports = merge(common, {
     historyApiFallback: true,
     contentBase: path.resolve(process.cwd(), 'dist/'),
     compress: true,
-    open: true,
+    open: false,
     port: 8080,
+    stats: 'minimal',
   },
 });
