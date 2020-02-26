@@ -34,7 +34,7 @@ function getDateOfISOWeek(week, year) {
 
 // get starting and ending timestamp for the roster API
 export default (week) => {
-  let startTime = getDateOfISOWeek(week, 2019);
+  let startTime = getDateOfISOWeek(week, new Date().getFullYear());
   // set the endTime to one week after the startTime
   let endTime = startTime + weekMiliSeconds;
 
