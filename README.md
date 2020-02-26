@@ -1,6 +1,7 @@
 # RoosterRedux
 
 [![Build Status](https://travis-ci.org/sander2324/RoosterRedux.svg?branch=master)](https://travis-ci.org/sander2324/RoosterRedux)
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 
 A cleaner redesign of the Deltion roster site.
 
