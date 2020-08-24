@@ -19,7 +19,7 @@ export default {
     context.commit(mutations.UPDATE_WEEK, []);
     const weekData = await axios({
       method: 'GET',
-      url: `https://roosters-api.stormheg.co/api/v1/roster?group=${context.state.group}&start=${start}&end=${end}`,
+      url: `https://deltion-rooster-proxy-2.stormheg.now.sh/api/v1/roster?group=${context.state.group}&start=${start}&end=${end}`,
     }).catch((err) => {
       console.log(err);
     });
