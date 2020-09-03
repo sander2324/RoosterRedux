@@ -26,7 +26,7 @@
       </div>
       <div
         v-for="course in day.items"
-        :key="course.st"
+        :key="`${course.st}${course.r}`"
         class="coursearea"
       >
         <div class="coursebox">
@@ -41,10 +41,10 @@
           </div>
         </div>
         <div
-          v-if="hasBreak(course, day.items)"
+          v-if="getBreakTime(course, day.items)"
           class="coursebox__break"
         >
-          {{ getBreakTime(course, day.items) }}
+          Pauze van {{ getBreakTime(course, day.items) }} minuten
         </div>
       </div>
     </div>
@@ -52,6 +52,7 @@
 </template>
 
 <script>
+import differenceInMinutes from 'date-fns/differenceInMinutes';
 
 export default {
   computed: {
@@ -70,31 +71,29 @@ export default {
       return finalName;
     },
 
-    // Determine if the current course has a break between the next course
-    hasBreak(currentCourse, dayItems) {
-      const index = this.getCurrentCourseIndex(currentCourse, dayItems);
-      if (dayItems[index] && dayItems[index + 1]) {
-        if (dayItems[index].et === dayItems[index + 1].st) return false;
-        return true;
-      }
-      return false;
-    },
-
     getCurrentCourseIndex(currentCourse, dayItems) {
       let index;
       for (let i = 0; i < dayItems.length; i++) {
-        if (dayItems[i].st === currentCourse.st) index = i;
+        if (
+          dayItems[i].st === currentCourse.st
+          && dayItems[i].r === currentCourse.r
+        ) index = i;
       }
       return index;
     },
 
     getBreakTime(currentCourse, dayItems) {
-      if (!this.hasBreak(currentCourse, dayItems)) return '';
       const index = this.getCurrentCourseIndex(currentCourse, dayItems);
-      if (!dayItems[index] && !dayItems[index + 1]) return '';
-      const breakTime = new Date(dayItems[index + 1].st - dayItems[index].et);
-      const breakTimeMin = breakTime.getMinutes();
-      return `Pauze van ${breakTimeMin} minuten`;
+      if (!dayItems[index] || !dayItems[index + 1]) return 0;
+
+      const currentCourseEndDate = new Date(dayItems[index].et);
+      const nextCourseStartDate = new Date(dayItems[index + 1].st);
+
+      // Get the diffrence in minutes between the end of the current course
+      // and the start of the next.
+      // If the difference is negative (two courses with the same start and end date),
+      // the difference will be zero instead.
+      return Math.max(differenceInMinutes(nextCourseStartDate, currentCourseEndDate), 0);
     },
   },
 };
