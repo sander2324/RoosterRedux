@@ -1,7 +1,6 @@
 .scheduleArea {
   display: flex;
   flex-wrap: wrap;
-  margin: auto;
 }
 
 .wrongClassError {
@@ -127,7 +126,11 @@
   }
 }
 
-@media(max-width: 300px) {
+@include break('sm') {
+
+  .scheduleArea {
+    justify-content: center;
+  }
 
   .daybox {
     margin-left: 0;

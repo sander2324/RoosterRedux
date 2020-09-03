@@ -8,6 +8,8 @@
 @import 'reboot'; // Makeover time!
 @import 'grid'; // This will generate responsive grid classes for us.
 
+@import 'general';
+
 // Components
 @import './components/header';
 @import './components/schedule';
