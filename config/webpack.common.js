@@ -55,6 +55,7 @@ module.exports = {
         loader: 'file-loader',
         options: {
           name: 'assets/[name].[ext]', // Put these files inside a subfolder called 'assets' inside the dist folder.
+          esModule: false,
         },
       },
     }],
