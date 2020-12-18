@@ -19,6 +19,7 @@
           class="SearchBox__input input"
           type="text"
           placeholder="Vul hier je klas in"
+          aria-label="Vul hier je klas in"
           @keyup.enter="submitGroup"
         >
         <div
