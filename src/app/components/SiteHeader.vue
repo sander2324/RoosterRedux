@@ -5,15 +5,17 @@
         <h2>RoosterRedux</h2>
       </div>
       <div class="SearchBox">
-        <a
+        <button
           class="SearchBox__weekbtn button"
+          aria-label="Vorige week"
           @click="updateWeekNumber(-1)"
         >
           <img
             src="../../svg/arrow-left.svg"
             alt="<"
+            aria-hidden="true"
           >
-        </a>
+        </button>
         <input
           v-model="groupInput"
           class="SearchBox__input input"
@@ -27,15 +29,17 @@
         >
           {{ rosterInfo }}
         </div>
-        <a
+        <button
           class="SearchBox__weekbtn button"
+          aria-label="Volgende week"
           @click="updateWeekNumber(1)"
         >
           <img
             src="../../svg/arrow-right.svg"
             alt=">"
+            aria-hidden="true"
           >
-        </a>
+        </button>
       </div>
       <div class="header__SocialDisplay" />
     </div>
